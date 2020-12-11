@@ -55,6 +55,11 @@ $secondary-font-color:#000;
     display: flex;
     flex-direction: column;
     padding: 0 3%;
+    .z-no-message-info{
+      font-size: 16pt;
+      align-self: center;
+      margin-top: 30px;
+    }
 
     .z-message-bubble {
       position: relative;

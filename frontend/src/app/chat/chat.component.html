@@ -23,6 +23,9 @@
     </div>
   </div>
   <div class="z-message-container" #scrollMe [scrollTop]="scrollMe?.scrollHeight">
+    <div class="z-no-message-info" *ngIf="user?.messages?.length==0">
+      Send Message to Start!
+    </div>
     <div class="z-message-bubble" [class.z-right]="message?.from==user?.name" *ngFor="let message of user?.messages">
       {{message.text}}
       <mat-icon *ngIf="message.from==user?.name" class="z-edit-message" (click)="openEditDialog(editTempRef,message)">
