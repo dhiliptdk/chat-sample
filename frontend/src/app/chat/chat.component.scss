@@ -1,0 +1,189 @@
+$primary-color:#84a2ee;
+$secondary-color:#ffffff;
+$primary-font-color:#fff;
+$secondary-font-color:#000;
+
+.z-chat-container {
+  height: 100%;
+
+  overflow: hidden;
+
+  .z-chat-head {
+    height: 75px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: 0px 6px 17px 0px rgba(50, 50, 50, 0.75);
+    align-items: center;
+
+    .z-action {
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    .z-user-profile {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .z-user-avatar {
+        height: 40px;
+        width: 40px;
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .z-user {
+        margin-left: 10px;
+
+        .z-name {
+          font-size: 18pt;
+        }
+      }
+    }
+  }
+
+  .z-message-container {
+    height: calc(100% - 75px);
+    width: auto;
+    background: $secondary-color;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3%;
+
+    .z-message-bubble {
+      position: relative;
+      padding: 10px;
+      margin: 10px;
+      border: 2px solid $primary-color;
+      min-width: 100px;
+      width: 30%;
+      border-radius: 20px;
+      border-bottom-left-radius: 0;
+
+      &:last-child {
+        margin-bottom: 80px;
+      }
+
+      &.z-right {
+        color: $primary-font-color;
+        align-self: flex-end;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 0px;
+        background: $primary-color;
+
+        .z-edit-message {
+          position: absolute;
+          display: none;
+          right: -8px;
+          cursor: pointer;
+          color: black;
+          bottom: -10px;
+          font-size: 12pt;
+        }
+
+        &:hover {
+          .z-edit-message {
+            display: block;
+          }
+        }
+      }
+    }
+
+
+
+  }
+
+  .z-input-container {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+
+    .z-input-float {
+      display: flex;
+      justify-content: center;
+
+      .z-input-form {
+        height: 50px;
+        width: calc(100% - 40px);
+        background: $primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 25px;
+        padding: 15px;
+        box-sizing: border-box;
+
+        .z-input-box {
+          width: calc(100% - 20px);
+          background: transparent;
+          border: none;
+          color: $primary-font-color;
+          font-size: 14pt;
+          outline: none;
+
+          &::placeholder {
+            color: $primary-font-color;
+          }
+        }
+
+        .z-input-send {
+          background: transparent;
+          border: none;
+          outline: none;
+          width: 20px;
+          cursor: pointer;
+
+          color: $primary-font-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+.z-edit-container {
+  display: flex;
+  justify-content: center;
+
+  .z-edit-form {
+    height: 50px;
+    width: calc(100% - 40px);
+    background: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    .z-edit-box {
+      width: calc(100% - 20px);
+      background: transparent;
+      border: none;
+      color: $primary-font-color;
+      font-size: 14pt;
+      outline: none;
+
+      &::placeholder {
+        color: $primary-font-color;
+      }
+    }
+
+    .z-edit-save {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 20px;
+      cursor: pointer;
+
+      color: $primary-font-color;
+    }
+  }
+}

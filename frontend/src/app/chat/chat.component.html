@@ -1,0 +1,59 @@
+<div class="z-chat-container">
+
+
+  <div class="z-chat-head">
+    <div class="z-action a-back">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </div>
+    <div class="z-user-profile">
+      <div class="z-user-avatar">
+        <img src="/assets/icons/justin.png" alt="" srcset="">
+      </div>
+      <div class="z-user">
+        <div class="z-name">
+          {{user?.name}}
+        </div>
+        <div class="z-stautus">
+          Active now
+        </div>
+      </div>
+    </div>
+    <div class="z-action a-back">
+      <mat-icon>more_horiz</mat-icon>
+    </div>
+  </div>
+  <div class="z-message-container" #scrollMe [scrollTop]="scrollMe?.scrollHeight">
+    <div class="z-message-bubble" [class.z-right]="message?.from==user?.name" *ngFor="let message of user?.messages">
+      {{message.text}}
+      <mat-icon *ngIf="message.from==user?.name" class="z-edit-message" (click)="openEditDialog(editTempRef,message)">
+        edit</mat-icon>
+    </div>
+
+  </div>
+  <div class="z-input-container">
+    <div class="z-input-float">
+      <form #inputForm='ngForm' class="z-input-form" (submit)="send(inputForm)">
+        <input class="z-input-box" [(ngModel)]='text' required placeholder="Type your message..." type="text"
+          name="text" />
+        <button class="z-input-send" [disabled]="inputForm.invalid" type="submit">
+          <mat-icon>send</mat-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #editTempRef let-message>
+  <h3 mat-dialog-title>Edit Message</h3>
+  <mat-dialog-content>
+    <div class="z-edit-container">
+      <form #editForm='ngForm' class="z-edit-form" (submit)="save(editForm,message)">
+        <input class="z-edit-box" [(ngModel)]='editText' required placeholder="Type your message..." type="text"
+          name="editText" />
+        <button class="z-edit-save" [mat-dialog-close]="true" [disabled]="editForm.invalid" type="submit">
+          <mat-icon>save</mat-icon>
+        </button>
+      </form>
+    </div>
+  </mat-dialog-content>
+</ng-template>
