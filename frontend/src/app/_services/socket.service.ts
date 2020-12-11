@@ -10,11 +10,11 @@ export class SocketService {
   private socket
   constructor() {
     this.socket = socketIo(environment.API_URI, { 'forceNew': true, autoConnect: false });
-    this.socket.connect()
 
   }
 
   join(sessionID) {
+    this.socket.connect()
     this.socket.emit('join', sessionID);
   }
 
