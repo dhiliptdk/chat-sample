@@ -7,11 +7,9 @@ function onError(err) {
   console.log(err);
 }
 exports.sendMessage = function (message) {
-  console.log("emitting to ", message.from, message.to)
   ioemitter.to(message.from).to(message.to).emit('message', message);
 }
 exports.updateMessage = function (message) {
-  console.log("emitting to ", message.from, message.to)
   ioemitter.to(message.from).to(message.to).emit('update-message', message);
 }
 exports.ioemitter = ioemitter
